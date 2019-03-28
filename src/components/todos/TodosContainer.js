@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 class TodosContainer extends Component {
-
+  
+  const mapStateToProps = state => {
+    return {
+      todos: state.todos
+    }
+  }
+  
   render() {
     return(
       <div></div>
@@ -10,4 +16,4 @@ class TodosContainer extends Component {
   }
 };
 
-export default connect()(TodosContainer);
+export default connect(mapStateToProps)(TodosContainer);
