@@ -3,17 +3,21 @@ import { connect } from 'react-redux'
 
 class TodosContainer extends Component {
 
-  const mapStateToProps = state => {
-    return {
-      todos: state.todos
-    }
-  }
+  renderTodos = () => this.props.todos.map((todo, id) => <Todo key={id} text={todo} />)
 
   render() {
     return(
-      <div></div>
+      <div>
+        {this.renderTodos()}
+      </div>
     );
   }
 };
+
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  }
+}
 
 export default connect(mapStateToProps)(TodosContainer);
